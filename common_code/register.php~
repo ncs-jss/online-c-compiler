@@ -1,0 +1,84 @@
+<html>
+<body>
+<?php
+	$header="../index.php";
+session_start();	
+	
+		$con = mysql_connect("localhost","root","");
+			$dbselect = mysql_select_db("Onlinecom",$con);
+			
+	class student
+	{
+	
+		public function check($first_name,$last_name,$admission,$password,$password2,$branch,$year,$qcheck)
+		{
+			if($first_name==NULL || $last_name==NULL ||$admission==NULL || $password2==NULL || $password==NULL || $branch==NULL|| $year==NULL)
+			{
+				$_SESSION["err"]="please enter details correctly, all details are mandatory";
+				//header('Location:'.$header.'.php');
+			}else
+			if (!($password==$password2))
+			{
+				$_SESSION["err"]="passwords do not match";
+				//header('Location:'.$header.'.php');
+			}else
+			if (strlen($password)<=6)
+			{
+				$_SESSION["err"]="password is too short";
+				//header('Location:'.$header.'.php');
+			}else
+			if($qcheck==1)
+			{
+				$_SESSION["err"]="Admission number already registered";
+			}
+			else
+			{
+			$_SESSION["err"]="";
+			return 1;
+			}
+		}
+		public function submit()
+		{
+			$con = mysql_connect("localhost","root","");
+			$dbselect = mysql_select_db("Onlinecom",$con);
+			$first_name=stripslashes($_POST["first_name"]);
+			$last_name=stripslashes($_POST["last_name"]);
+			$admission=stripslashes($_POST["admission"]);
+			$password=stripslashes($_POST["password"]);
+			$password2=stripslashes($_POST["password2"]);
+			$branch=stripslashes($_POST["branch"]);
+			$year=stripslashes($_POST["year"]);
+			
+			
+			$q="SELECT * FROM register WHERE admission = '$admission'";
+			$qc = mysql_query($q,$con);
+			$qcheck=mysql_num_rows($qc);
+			
+			
+			
+			$register = new student;
+			$pass=$register->check($first_name,$last_name,$admission,$password,$password2,$branch,$year,$qcheck);
+			
+			$sql="INSERT INTO Register (`firstname`, `lastname`, `admission`, `password`, `branch`, `year`) VALUES ('$first_name', '$last_name', '$admission', '$password', '$branch', '$year')";
+			
+			if($pass==1)
+			{
+			$res=mysql_query($sql,$con);
+			if(!$res)
+			return "there was a problem in datbase connection";
+			else
+			return "Registered Successfully";
+			}
+			else
+			return "Error";
+		}
+	}
+	$register= new student;
+	$result=$register->submit();
+	echo $result;
+	header('Location:../index.php');
+	mysql_close($con);
+	
+?>
+</body>
+</html>

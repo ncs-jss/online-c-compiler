@@ -1,0 +1,202 @@
+/* global */
+html
+{
+	height: 100%;
+	width:100%;
+}
+
+body
+{ 
+  font-family:"Courier New", Courier, monospace;
+  background-color:	#B8DBFF;
+  margin: 0px;
+  font-size: 14px;
+}
+
+/* anchors Start
+---------------------*/
+a{outline: none;}
+
+a, a:link, a:visited 
+{
+  color:#FF7F50;
+  text-decoration:none;
+}
+a:hover 
+{
+  text-decoration:underline;
+  color:#EE0000;
+  text-shadow: 1px 1px #444444; 
+}
+
+#logo, #logo h1 a
+{
+  border:none;
+  text-decoration:none;
+ }
+
+/*index body*/
+
+#content
+{
+ width: 850px; 
+ height: 500px
+}
+
+#regform
+{
+ border:2px solid gray;
+ width:500px;
+ height:375px;
+ border-radius:20px;
+ box-shadow: 5px 5px 2px #888888;
+ margin-top:10px;
+ padding:25px;
+}
+
+/* home body */
+#ceiling
+{
+ font-family:"Courier New", Courier, monospace;
+ font-size:0.8cm;
+ height:1cm;
+ background-color:#222222;
+ color:#EEEEEE;
+ padding: 0.25cm;
+ margin: 0.25cm;
+ border-radius:10px;
+ box-shadow: 3px 3px 1px #888888;
+ font-weight:bold;
+}
+
+#abt_user
+{
+ height:0.8cm;
+ background-color:#222222;
+ color:#33FF33;
+ padding: 0.1cm;
+  font-weight:bold;
+ border-radius:10px;
+ box-shadow: 3px 3px 1px #888888;
+ margin: 0.25cm 0.25cm 0cm 0.25cm;
+}
+
+#com_response
+{
+ height:0.8cm;
+ background-color:#111111;
+ font-weight:bold;
+ color:#33FF33;
+ padding: 0.1cm;
+ border-radius:10px;
+ box-shadow: 3px 3px 1px #888888;
+ margin: 0px 0.25cm;
+}
+
+#login-box
+{
+ border:2px solid black;
+ width:400px;
+ height:200px;
+ border-radius:20px;
+ box-shadow: 5px 5px 2px #888888;
+ margin-top:100px;
+}
+
+.cblock
+{
+ width:15cm;
+ margin: 0.125cm 0.25cm;
+ height:12cm;
+ border-radius:10px;
+ box-shadow: 3px 3px 1px #888888;
+ background-color:#FFFFFF;
+}
+
+#thecode
+{
+ width:10cm;
+ margin: 0.5cm 0.5cm;
+ height: 7cm;
+ border-radius:10px;
+ box-shadow: 3px 3px 1px #888888;
+ text-align:left;
+}
+
+.fipblock
+{
+ width:14cm;
+ margin: 0.25cm 0.25cm 0.25cm 0cm;
+ font-family:"Courier New", Courier, monospace;
+ height:2.3cm;
+ border-radius:10px;
+ box-shadow: 3px 3px 1px #888888;
+ background-color:#FFFFFF; 
+}
+ 
+.opblock
+{
+ width:14cm;
+ margin: 0.25cm 0.25cm 0.25cm 0cm;
+ height:7.0cm;
+ background-color:#FFFFFF; 
+ border-radius:10px;
+ box-shadow: 3px 3px 1px #888888;
+ overflow:none;
+}
+
+.dirblock
+{
+ width:4cm;
+ margin: 0.25cm 0.25cm 0.25cm 0cm;
+ border: 1px solid;
+ border-radius:10px;
+ box-shadow: 3px 3px 1px #888888;
+ height:12cm;
+ background-color:#FFFFFF; 
+}
+
+.intab
+{
+ width:12cm;
+}
+
+#opcode
+{
+ width: 13.25cm;
+ border: 1px solid #000000;
+ font-size:13px;
+ border-radius:3px;
+ margin: 0.25cm;
+ height: 2.4cm;
+ overflow:auto;
+}
+
+#operrs
+{
+ width: 13.25cm;
+ border: 1px solid #000000;
+ font-family:"Courier New", Courier, monospace;
+ font-size:13px;
+ border-radius:3px;
+ margin: 0.25cm;
+ height: 2.4cm;
+ overflow:auto;
+}
+
+#filtable
+{
+ padding:0.15cm 0cm;
+}
+
+#foot
+{
+ margin:5px;
+}
+
+input:required:valid
+{
+ border: 2px solid #00CC44;
+}
+
+

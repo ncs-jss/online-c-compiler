@@ -1,0 +1,6 @@
+<?php 
+	global $dbhost = "localhost";
+	global $dbuser = "root";
+	global $dbpass = "ni22le";
+	global $db = "onlinecom";
+?>

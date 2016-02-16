@@ -1,0 +1,83 @@
+<html>
+<body>
+<?php
+	session_start();
+	if(isset($_SESSION['stuid']))
+	{
+	 header("Location: ../jssonc_home.php");
+	}
+	function  check($first_name,$last_name,$admission,$password,$password2,$branch,$year,$qcheck)
+		{
+			if($first_name==NULL || $last_name==NULL ||$admission==NULL || $password2==NULL || $password==NULL || $branch==NULL|| $year==NULL)
+			{
+				$_SESSION["reg_err"]="Please enter the details correctly, All details are mandatory";
+			}else
+			if (!($password==$password2))
+			{
+				$_SESSION["reg_err"]="The Passwords do not match";
+			}else
+			if (strlen($password)<=6)
+			{
+				$_SESSION["reg_err"]="The Password is too short";
+			}else
+			if($qcheck==1)
+			{
+				$_SESSION["reg_err"]="Admission number already registered";
+			}
+			else
+			{
+			return 1;
+			}
+
+		}
+	require("dbcon.php");	
+	$con = new mysqli($dbhost, $dbuser, $dbpass, $db);
+	if ($mysqli->connect_errno) 
+	{
+	    $_SESSION['reg_err']="Failed to connect to MySQL: " . $mysqli->connect_error;
+	}
+	$fname = stripslashes($_POST["fname"]);
+	$lname = stripslashes($_POST["lname"]);
+	$admno = strtolower(stripslashes($_POST["admno"]));
+	$password = stripslashes($_POST["password"]);
+	$password2 = stripslashes($_POST["password2"]);
+	$branch = stripslashes($_POST["branch"]);
+	$year = stripslashes($_POST["year"]);
+	$q = "SELECT * FROM register WHERE admission = '$admno'";
+	$qc = $con->query($q);
+	$qcheck = $qc->num_rows;
+	$passfd=md5($password);
+	$sql="INSERT INTO register (`firstname`, `lastname`, `admission`, `password`, `branch`, `year`) VALUES ('$fname', '$lname', '$admno', '$passfd', '$branch', '$year')";		
+	$pass = check($fname, $lname, $admno, $password, $password2, $branch, $year, $qcheck);
+	if($pass==1)
+	{
+		$res = $con->query($sql);
+		if(!$res)
+		{
+		  $_SESSION['login_err'] = "There was a problem in datbase connection";
+		  header("Location: ../index.php");
+		}
+		else
+		{
+		  $_SESSION['login_err'] = "Registered Successfully";
+ 		  $usrdir=md5($admno);			//Encrypt Directory name for the users
+		  mkdir("../code_dep/$usrdir",0777);
+		  mkdir("../code_dep/$usrdir/c",0777);	//Create new directories specific to the language of code
+		  mkdir("../code_dep/$usrdir/cpp",0777);
+		  copy("../code_dep/index.php","../code_dep/$usrdir/index.php");
+                  copy("../code_dep/csample.c","../code_dep/$usrdir/c/csample.c");
+   		  copy("../code_dep/cppsample.cpp","../code_dep/$usrdir/cpp/cppsample.cpp");
+		  copy("../code_dep/index.php","../code_dep/$usrdir/c/index.php");
+		  copy("../code_dep/index.php","../code_dep/$usrdir/cpp/index.php");
+		  
+		  header("Location: ../index.php");
+		}
+	}
+	else
+	{
+		header("Location: ../register.php");
+	}	
+	$con->close();
+?>
+</body>
+</html>

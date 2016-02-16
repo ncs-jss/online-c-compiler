@@ -1,0 +1,5 @@
+abc.c: In function 'main':
+abc.c:4: warning: incompatible implicit declaration of built-in function 'exit'
+abc.c:4: error: 'EXIT_SUCCESS' undeclared (first use in this function)
+abc.c:4: error: (Each undeclared identifier is reported only once
+abc.c:4: error: for each function it appears in.)

@@ -1,0 +1,43 @@
+REQUIREMENTS :
+---------------
+1.User input to be taken in program ?????how man how??? (DONE)
+2.Problem of C parser??how to use it too?? (DONE)
+3.Display directory structure?Probably using php. (DONE)
+
+=====================================================================
+
+----------------------
+DOCUMENTATION NOTES :
+----------------------
+
+/code_dep - Code Depository for all the users
+/code_dep/username/c : Codes (c) saved by user
+/code_dep/username/c : tmp_inp.txt : Inputs for current program (Destroy on usage) //Not Ready
+/srv_scripts : Server side scripts to be run on client action
+/codemirror : For working with codemirror editor (LIVE)
+/style : Contains the style sheet for basic blocks of the compiler
+/common_code : Contains dbcon.php, and the php scripts for login register and logout events.
+
+
+jssonc_home : The homepage appearing after a user logs in to the site
+uplfile.php : To Upload Text Code
+u
+comp-act : Compile Action (compiles the filename using the GCC compiler)
+
+=====================================================================
+
+Only Tasks that remain :
+------------------------
+1. To create a user registration and login module. (DONE)
+2. Every registered user gets a directory in code_dep. (DONE - Need to modify permissions for the created directory)
+3. To read the output from out_user.txt or err_user.txt and display it in output block (Asychronous - Done).
+4. To improve the look and feel of the compiler (Final Task That Remains).
+
+=====================================================================
+
+PERMISSIONS FOR FILES AND DIRECTORIES
+--------------------------------------
+FILENAME : 	Owner	Group	Others
+code_dep : 	  7	  4       0
+
+

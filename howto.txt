@@ -1,0 +1,18 @@
+---------------------------
+How to Use the Compiler :
+---------------------------
+1. Type in your code in the given textarea OR Upload a saved code using the Upload option.
+2. Click on "Save To Server" to save the file.
+3. Once Saved, the code appears in the saved codes division at the right.
+4. To Delete a code click on the (x) appearing on the file (Be Careful There).
+5. If You wish to give inputs. Save all your inputs in a text file (.txt extension).
+	The inputs are to be given as space seperated values in order such that the input to be read first is the leftmost input.
+6. Click on "Compile and Execute" to compile and run your code (in case inputs are given, they are considered during execution)
+
+-----
+NOTE:
+-----
+1. Do Save your code before executing it.
+2. The Uploaded input file is cleared after the code execution.
+3. Hence, the input file needs to be uploaded for every execution(in case it is needed).
+4. Directly clicking on compile and execute will not consider the recent changes made after the last save action.

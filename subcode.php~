@@ -1,0 +1,11 @@
+<?php
+$data = $_POST['txtcode'];
+$ext = $_POST['lang'];
+$filnm = $_POST['filename'];
+$file = "$filnm.$ext"; 
+$fp = fopen("$file", "w") or die("Couldn't open $file for writing!");
+fwrite($fp, $data) or die("Couldn't write values to file!"); 
+fclose($fp); 
+echo "Saved to $file successfully!";
+header("Location:jssonc_home.php");
+?>

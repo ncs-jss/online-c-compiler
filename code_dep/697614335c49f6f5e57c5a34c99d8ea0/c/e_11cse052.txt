@@ -1,0 +1,5 @@
+csample.c: In function 'main':
+csample.c:14: error: 'ikhj' undeclared (first use in this function)
+csample.c:14: error: (Each undeclared identifier is reported only once
+csample.c:14: error: for each function it appears in.)
+csample.c:15: error: expected ';' before 'return'

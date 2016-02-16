@@ -1,0 +1,1 @@
+Sum of 15 and 10 is 25

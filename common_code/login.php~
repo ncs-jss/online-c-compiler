@@ -1,0 +1,23 @@
+<?php
+	session_start();
+	$admission = $_POST['admission'];
+	$password = $_POST['password'];
+	$con = mysql_connect("localhost","root","");
+	if(!$con)
+	die ("Network Connection damage ". mysql_error());
+	$db= mysql_select_db("onlinecom",$con);
+	$query = "SELECT * FROM register WHERE admission = '$admission' AND password= '$password'";
+	$res = mysql_query($query,$con);
+	$resnum = mysql_num_rows($res);
+	if($resnum==1)
+	{
+		$_SESSION['admi']=$admission;
+		header('Location: ../jssonc_home.php');
+	}
+	else if($resnum==0)
+	{
+		$_SESSION['info']="Enter correct details";
+		header('Location: ../index.php');
+	}
+	mysql_close($con);
+?>

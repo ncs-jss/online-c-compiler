@@ -1,0 +1,46 @@
+NOTES :
+---------------
+1. User inputs can be sent from the upload input file Option
+2. The file for inputs must contain the input values (each in a new line)
+3. The Directory Structure is listed (based on the language selected)
+
+=====================================================================
+
+----------------------
+DOCUMENTATION NOTES :
+----------------------
+
+/code_dep 		: Code Depository for all the users
+/code_dep/userdir/c 	: Codes (c) saved by user
+/code_dep/userdir/c 	: tmp_inp.txt : Inputs for current program (Destroy on usage)
+/srv_scripts 		: Server side scripts to be run on client action
+/codemirror 		: For working with codemirror editor (LIVE)
+/style 			: Contains the style sheet for basic blocks of the compiler
+/common_code 		: Contains dbcon.php, and the php scripts for login register and logout events.
+
+Database dump	: /common_code/dbase.sql
+jssonc_home	: The homepage appearing after a user logs in to the site
+uplfile.php	: To Upload Text Code
+usrinps.php	: To Upload User Inputs
+comp-act	: Compile Action (compiles the filename using the GCC compiler)
+userdir		: md5 hash derived from the username
+
+======================================================================
+
+Only Tasks that remain :
+------------------------
+1. To create a user registration and login module. (DONE)
+2. Every registered user gets a directory in code_dep. (DONE - Need to modify permissions for the created directory)
+3. To read the output from out_user.txt or err_user.txt and display it in output block (Asychronous - Done).
+4. To improve the look and feel of the compiler (Done Considerably).
+
+======================================================================
+
+PERMISSIONS FOR FILES AND DIRECTORIES
+--------------------------------------
+FILENAME : 	Owner	Group	Others			//Can be modified from "common_code/reg_acte.php"
+code_dep : 	  7	  7      7
+userdir	 :	  7	  7	 7
+code_up	 :	  7	  5	 5
+
+=======================================================================

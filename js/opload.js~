@@ -1,0 +1,30 @@
+var xmlhttp;
+function view_out(user,lang)
+{
+var ofile="code_dep/"+user+"/"+lang+"/out_"+user+".txt";
+showout(ofile);
+}
+function loadXMLoutc(url,rfunc)
+{
+ if (window.XMLHttpRequest)
+   {// code for IE7+, Firefox, Chrome, Opera, Safari
+    xmlhttp=new XMLHttpRequest();
+   }
+ else
+   {// code for IE6, IE5
+    xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+   }
+ xmlhttp.onreadystatechange=rfunc;
+ xmlhttp.open("POST",url,true);
+ xmlhttp.send();
+}
+function showout(url1)
+{
+ loadXMLoutc(url1,function()
+  {
+  if (xmlhttp.readyState==4 && xmlhttp.status==200)
+    {
+      document.getElementById("opcode").innerHTML=xmlhttp.responseText;
+    }
+  });
+}
